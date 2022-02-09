@@ -86,7 +86,7 @@ class CapthaBot(commands.Cog):
         if str(ctx.guild.id) not in data or data[str(ctx.guild.id)] is None:
             return await ctx.send(embed=discord.Embed(title="A verified role has not been set for this server", description="Use `-setrole [@role]` to set it", color=discord.Color.green()))
         else:
-            await ctx.send(content="Click to verify", view=CaptchaView(client=self.client, guild=ctx.guild))
+            await ctx.send(embed=discord.Embed(title="Click this button to verify"), view=CaptchaView(client=self.client, guild=ctx.guild))
 
     @commands.command(help="Sets the verified role which the user will get once they complete a captcha")
     async def setrole(self, ctx, role:discord.Role):

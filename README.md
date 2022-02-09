@@ -10,4 +10,3 @@ The verified role is a role which the owners of the server have set using `-setr
 
 ![image2]()
 
-![image3]()
