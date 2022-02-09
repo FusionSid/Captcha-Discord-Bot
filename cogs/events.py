@@ -25,7 +25,7 @@ class Events(commands.Cog):
         except Exception as e:
             for i in guild.channels:
                 try:
-                    i.send(content="**Thanks for inviting me! :wave: **", embed=embed)
+                    await i.send(content="**Thanks for inviting me! :wave: **", embed=embed)
                     break
                 except:
                     pass
