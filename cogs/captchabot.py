@@ -79,6 +79,7 @@ class CapthaBot(commands.Cog):
         self.client = client
 
     @commands.command(help="Makes a button which upon pressing dm's the person a captcha and if they get it right they get a Verified role")
+    @commands.has_permissions(administrator=True)
     async def captcha(self, ctx):
         with open("./roles.json") as f:
             data = json.load(f)
@@ -89,6 +90,7 @@ class CapthaBot(commands.Cog):
             await ctx.send(embed=discord.Embed(title="Click this button to verify"), view=CaptchaView(client=self.client, guild=ctx.guild))
 
     @commands.command(help="Sets the verified role which the user will get once they complete a captcha")
+    @commands.has_permissions(administrator=True)
     async def setrole(self, ctx, role:discord.Role):
         with open("./roles.json") as f:
             data = json.load(f)
