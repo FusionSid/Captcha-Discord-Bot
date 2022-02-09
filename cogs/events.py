@@ -23,7 +23,13 @@ class Events(commands.Cog):
         try:
             await guild.system_channel.send(content="**Thanks for inviting me! :wave: **", embed=embed)
         except Exception as e:
-            pass
+            for i in guild.channels:
+                try:
+                    i.send(content="**Thanks for inviting me! :wave: **", embed=embed)
+                    break
+                except:
+                    pass
+                    
 
     @commands.Cog.listener()
     async def on_guild_remove(self,guild):
